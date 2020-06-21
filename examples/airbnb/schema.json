@@ -1,0 +1,77 @@
+[
+    {
+        "database": "airbnb",
+        "index": "reservations",
+        "nodes": [
+            {
+                "table": "users",
+                "schema": "public",
+                "columns": [
+                ],
+                "children": [
+                    {
+                        "table": "bookings",
+                        "schema": "public",
+                        "columns": [
+                        ],
+                        "relationship": {
+                            "variant": "object",
+                            "type": "one_to_one"
+                        },
+                        "children":[
+                            {
+                                "table": "places",
+                                "schema": "public",
+                                "relationship": {
+                                    "variant": "object",
+                                    "type": "one_to_one"
+                                },
+                                "children": [
+                                    {
+                                        "table": "cities",
+                                        "schema": "public",
+                                        "relationship": {
+                                            "variant": "object",
+                                            "type": "one_to_one"
+                                        },
+                                        "children": [
+                                            {
+                                                "table": "countries",
+                                                "schema": "public",
+                                                "relationship": {
+                                                    "variant": "object",
+                                                    "type": "one_to_one"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {  
+                                        "table": "hosts",
+                                        "schema": "public",
+                                        "columns": [
+                                            "email"
+                                        ],
+                                        "relationship": {
+                                            "variant": "scalar",
+                                            "type": "one_to_one"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "table": "reviews",
+                                "schema": "public",
+                                "columns": [
+                                ],
+                                "relationship": {
+                                    "variant": "object",
+                                    "type": "one_to_one"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
